@@ -1,8 +1,11 @@
+import Roll from '@/components/roll/page'
 import React from 'react'
 
 const roll = () => {
   return (
-    <div>roll</div>
+    <div>
+        <Roll />
+    </div>
   )
 }
 

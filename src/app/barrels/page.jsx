@@ -1,8 +1,11 @@
+import Barrels from '@/components/barrels/page'
 import React from 'react'
 
 const barrels = () => {
   return (
-    <div>barrels</div>
+    <div>
+        <Barrels/>
+    </div>
   )
 }
 

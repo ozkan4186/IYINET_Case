@@ -1,8 +1,11 @@
+import Pipes from '@/components/pipes/page'
 import React from 'react'
 
 const pipes = () => {
   return (
-    <div>pipes</div>
+    <div>
+        <Pipes/>
+    </div>
   )
 }
 

@@ -1,8 +1,11 @@
+import Box from '@/components/box/page'
 import React from 'react'
 
 const box = () => {
   return (
-    <div>box</div>
+  <div>
+    <Box/>
+  </div>
   )
 }
 

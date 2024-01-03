@@ -1,8 +1,11 @@
+import Sacks from '@/components/sacks/page'
 import React from 'react'
 
 const sacks = () => {
   return (
-    <div>sacks</div>
+    <div>
+        <Sacks/>
+    </div>
   )
 }
 
