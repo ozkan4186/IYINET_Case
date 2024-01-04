@@ -13,3 +13,8 @@
  
 ![iyi](https://github.com/ozkan4186/IYINET_Case/assets/109352349/2f3d1a7a-5044-4f93-9299-881a88864fee)
 
+Author
+✒👍Author - Özkan Demir
+
+✏🧿Happy Coding
+
