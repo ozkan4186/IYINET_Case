@@ -45,7 +45,7 @@ const Bigbags = () => {
         </div>
         <div className="flex flex-wrap cursor-pointer md:gap-40 ">
           <div>
-            <PiToolboxLight className="m-auto text-9xl  text-gray-500 " />
+            <PiToolboxLight className="m-auto md:mt-6 text-9xl  text-gray-500 " />
           </div>
           <form action="" className="">
             <div className="flex gap-3 ">
@@ -200,7 +200,7 @@ const Bigbags = () => {
               </label>
               <div className="flex justify-center gap-6">
                 <div>
-                  <PiToolboxLight className="m-auto text-9xl  text-blue-300" />
+                  <PiToolboxLight className="m-auto md:mt-2  text-9xl  text-blue-300" />
                 </div>
                 <div className="mt-3">
                   <PiToolboxLight className="m-auto text-9xl  text-blue-300" />

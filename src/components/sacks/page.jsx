@@ -44,7 +44,7 @@ const Sacks = () => {
         </div>
         <div className="flex flex-wrap cursor-pointer md:gap-40  ">
           <div>
-            <FaSackXmark className="m-auto text-9xl text-gray-500 " />
+            <FaSackXmark className="m-auto text-9xl md:mt-10 text-gray-500 " />
           </div>
           <form action="" className="">
             <div className="flex gap-3 ">
@@ -199,7 +199,7 @@ const Sacks = () => {
               </label>
               <div className="flex justify-center gap-6">
                 <div>
-                  <FaSackXmark className="m-auto text-9xl  text-blue-300" />
+                  <FaSackXmark className="m-auto text-9xl md:mt-3  text-blue-300" />
                 </div>
                 <div className="mt-3">
                   <FaSackXmark className="m-auto text-9xl  text-blue-300" />
