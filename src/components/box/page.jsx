@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import img from "../../../public/den.png";
@@ -8,32 +8,28 @@ import img4 from "../../../public/4.png";
 import img1 from "../../../public/1.png";
 import { FaSackXmark } from "react-icons/fa6";
 
-
 const Box = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handlePredictionButtonClick = (e) => {
-        e.preventDefault()
-      // Prediction butonuna tıklandığında modal'ı açmak için state'i güncelle
-      setIsModalOpen(true);
-    };
+  const handlePredictionButtonClick = (e) => {
+    e.preventDefault();
 
-    const handleCloseModal = () => {
-      // Modal'ı kapatmak için state'i güncelle
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("overlay")) {
       setIsModalOpen(false);
-    };
-     const handleOverlayClick = (e) => {
-       // Overlay'e tıklandığında modal'ı kapatmak için state'i güncelle
-       if (e.target.classList.contains("overlay")) {
-         setIsModalOpen(false);
-       }
-     };
-
+    }
+  };
 
   return (
     <div>
       <div
-        className="container mx-auto my-9 sm:w-full md:w-3/4 lg:w-[56rem] leading-10 "
+        className="container mx-auto my-9 sm:w-full md:w-3/4 lg:w-[56rem] leading-10  "
         style={{
           backgroundColor: "#F6F6F6",
         }}
@@ -53,16 +49,17 @@ const Box = () => {
               width={300}
               height={900}
               alt="Picture of the author"
+              className=""
             />
           </div>
-          <form action="">
+          <form action="" className="">
             <div className="flex gap-3 ">
               <div>
                 <label className="text-gray-500 mb-5 " htmlFor="">
                   Product Name
                 </label>{" "}
                 <br />
-                <input className="rounded-3xl px-5 " type="text" />
+                <input className="rounded-3xl px-5 w-full " type="text" />
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="">
@@ -195,86 +192,70 @@ const Box = () => {
           </form>
         </div>
       </div>
-      <div className="container mx-auto flex gap-8 my-9 sm:w-full md:w-3/4 lg:w-[56rem] leading-10 ">
-        <div>
-          <h1>
+      <div className="container mx-auto flex flex-col my-9 sm:flex-row sm:w-full md:w-3/4 lg:w-[56rem] leading-10">
+        <div className="mb-6 sm:mb-0">
+          <h1 className="text-lg sm:text-lg">
             <span className="text-blue-500">3.</span>
-            <span className="text-blue-900 font-bold ">SPACING SETTINGS ?</span>
+            <span className="text-blue-900 font-bold">SPACING SETTINGS ?</span>
           </h1>
-          <div className="flex flex-wrap cursor-pointer gap-2 ">
+          <div className="flex flex-wrap cursor-pointer gap-2">
             <div>
               <label>
                 <input type="checkbox" /> Tilt to Length
               </label>
-              <div className="flex justify-center gap-6 ">
+              <div className="flex justify-center gap-6">
                 <div>
-                  <Image
-                    src={img2}
-                    width={100}
-                    height={300}
-                    alt="Picture of the author"
-                  />
+                  <Image src={img2} width={100} height={300} alt="Picture 1" />
                 </div>
                 <div className="mt-3">
-                  <Image
-                    src={img3}
-                    width={100}
-                    height={300}
-                    alt="Picture of the author"
-                  />
+                  <Image src={img3} width={100} height={300} alt="Picture 2" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="ml-10">
-          <h1>
+        <div className="ml-0 sm:ml-10">
+          <h1 className="text-lg sm:text-lg">
             <span className="text-blue-500">4.</span>
-            <span className="text-blue-900 font-bold ">STUFFING SETTINGS</span>
+            <span className="text-blue-900 font-bold">STUFFING SETTINGS</span>
           </h1>
-          <div className="flex flex-wrap cursor-pointer gap-6 ">
-            <div>
-              <Image
-                src={img1}
-                width={100}
-                height={50}
-                alt="Picture of the author"
-              />
+          <div className="flex flex-wrap cursor-pointer gap-6  ">
+            <div className="flex gap-2">
+              <div className="mt-3">
+                <Image src={img1} width={100} height={10} alt="Picture 3" />
+              </div>
+              <div className="flex-col gap-2">
+                <label>
+                  <input type="checkbox" /> Layers
+                </label>
+                <br />
+                <input
+                  className="rounded-3xl w-32 text-right"
+                  type="text"
+                  style={{
+                    backgroundColor: "#F6F6F6",
+                  }}
+                />
+              </div>
             </div>
-            <div className="flex-col gap-2">
-              <label>
-                <input type="checkbox" /> Layers
-              </label>{" "}
-              <br />
-              <input
-                className="rounded-3xl w-32   text-right  "
-                type="text"
-                style={{
-                  backgroundColor: "#F6F6F6",
-                }}
-              />
-            </div>
-            <div>
-              <Image
-                src={img4}
-                width={100}
-                height={600}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="flex-col gap-2">
-              <label>
-                <input type="checkbox" /> Layers
-              </label>{" "}
-              <br />
-              <input
-                className="rounded-3xl w-32   text-right  "
-                type="text"
-                style={{
-                  backgroundColor: "#F6F6F6",
-                }}
-              />
+            <div className="flex gap-2  ">
+              <div className="mt-14">
+                <Image src={img4} width={100} height={900} alt="Picture 4" />
+              </div>
+              <div className="flex-col gap-2">
+                <label>
+                  <input type="checkbox" /> Layers
+                </label>
+                <br />
+                <input
+                  className="rounded-3xl w-32 text-right"
+                  type="text"
+                  style={{
+                    backgroundColor: "#F6F6F6",
+                  }}
+                  placeholder="kg"
+                />
+              </div>
             </div>
           </div>
         </div>
