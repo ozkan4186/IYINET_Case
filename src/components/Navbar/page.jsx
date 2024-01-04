@@ -53,14 +53,16 @@ const Navbar = () => {
         </Link>
         <Link
           href={"/pipes"}
-          className="flex-col gap-2 p-8 shadow-lg bg-orange-100 rounded-lg   hover:bg-blue-600  "
+          className="flex-col gap-2 p-8 shadow-lg  rounded-lg   hover:bg-blue-600  "
+          style={{ backgroundColor: "#F6F6F6" }}
         >
           <GiCellarBarrels className="m-auto text-5xl text-gray-500 " />
           <p>pipes</p>
         </Link>
         <Link
           href={"/bulk"}
-          className="flex-col gap-2 p-8 shadow-lg  bg-orange-100 rounded-lg hover:bg-blue-600 "
+          className="flex-col gap-2 p-8 shadow-lg  bg-white rounded-lg hover:bg-blue-600 "
+          style={{ backgroundColor: "#F6F6F6" }}
         >
           <LiaShirtsinbulk className="m-auto text-5xl text-gray-500 " />
           <p>bulk</p>

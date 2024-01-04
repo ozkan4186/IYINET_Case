@@ -1,8 +1,35 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import img from "../../../public/den.png";
+import img2 from "../../../public/2.png";
+import img3 from "../../../public/3.png";
+import img4 from "../../../public/4.png";
+import img1 from "../../../public/1.png";
+import { FaSackXmark } from "react-icons/fa6";
+
 
 const Box = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handlePredictionButtonClick = (e) => {
+        e.preventDefault()
+      // Prediction butonuna tıklandığında modal'ı açmak için state'i güncelle
+      setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+      // Modal'ı kapatmak için state'i güncelle
+      setIsModalOpen(false);
+    };
+     const handleOverlayClick = (e) => {
+       // Overlay'e tıklandığında modal'ı kapatmak için state'i güncelle
+       if (e.target.classList.contains("overlay")) {
+         setIsModalOpen(false);
+       }
+     };
+
+
   return (
     <div>
       <div
@@ -35,14 +62,14 @@ const Box = () => {
                   Product Name
                 </label>{" "}
                 <br />
-                <input className="rounded-lg px-5 " type="text" />
+                <input className="rounded-3xl px-5 " type="text" />
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="">
                   Color
                 </label>
                 <br />
-                <input className="rounded-lg" type="text" />
+                <input className="rounded-3xl bg-indigo-200 " type="text" />
               </div>
             </div>
             <div className="flex gap-3 ">
@@ -51,71 +78,206 @@ const Box = () => {
                   Length
                 </label>{" "}
                 <br />
-                <input className="rounded-lg w-32" type="text" />
+                <input
+                  className="rounded-3xl w-32 text-right "
+                  type="text"
+                  placeholder="mm"
+                />
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="">
                   Width
                 </label>{" "}
                 <br />
-                <input className="rounded-lg w-32" type="text" />
+                <input
+                  className="rounded-3xl w-32 text-right "
+                  type="text"
+                  placeholder="mm"
+                />
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="">
                   Height
                 </label>{" "}
                 <br />
-                <input className="rounded-lg w-32" type="text" />
+                <input
+                  className="rounded-3xl w-32 pl-2 text-right "
+                  type="text"
+                  placeholder="mm"
+                />
               </div>
             </div>
             <div className="flex gap-3 ">
               <div>
                 <label className="text-gray-500 mb-5 " htmlFor="">
-                  Length
+                  Weight
                 </label>{" "}
                 <br />
-                <input className="rounded-lg w-32" type="text" />
+                <input
+                  className="rounded-3xl w-32   text-right "
+                  type="text"
+                  placeholder="kg"
+                />
               </div>
               <div>
                 <label className="text-gray-500" htmlFor="">
-                  Width
+                  Quantity
                 </label>{" "}
                 <br />
-                <input className="rounded-lg w-32" type="text" />
+                <input className="rounded-3xl w-32" type="text" />
               </div>
               <div className="flex gap-3 mt-5 ">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-44 h-10 mt-5 text-center rounded-3xl">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-44 h-10 mt-5 text-center rounded-3xl"
+                  onClick={handlePredictionButtonClick}
+                >
                   Prediction
                 </button>
               </div>
+              {isModalOpen && (
+                <div
+                  className="fixed inset-0 z-10 overflow-y-auto  "
+                  onClick={handleOverlayClick}
+                >
+                  <div className="flex items-center justify-center md:mt-24 md:ml-72 min-h-screen">
+                    <div className="fixed inset-0 bg-gray-500 opacity-75 overlay "></div>
+                    <div className="relative bg-white  p-6 rounded-lg">
+                      <div className="flex gap-16">
+                        <div className="flex gap-3">
+                          <h2>MAXİMUM CAPACİTY</h2>
+                          <p className=" rounded-full ">?</p>
+                        </div>
+                        <button
+                          className="text-2xl font-bold "
+                          onClick={handleCloseModal}
+                        >
+                          x
+                        </button>
+                      </div>
+                      <div className="flex gap-8">
+                        <div>
+                          <p>20 STANDART</p>
+                        </div>
+                        <div className="flex gap-3 justify-center ">
+                          <p className="mt-2">
+                            <FaSackXmark className=" text-lg text-gray-500 " />
+                          </p>
+                          <p>28230 Items</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-8">
+                        <div>
+                          <p>40 STANDART</p>
+                        </div>
+                        <div className="flex gap-3 justify-center ">
+                          <p className="mt-2">
+                            <FaSackXmark className=" text-lg text-gray-500 " />
+                          </p>
+                          <p>26700 Items</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-8">
+                        <div>
+                          <p>40 HİGH CUBE</p>
+                        </div>
+                        <div className="flex gap-3 justify-center ">
+                          <p className="mt-2">
+                            <FaSackXmark className=" text-lg text-gray-500 " />
+                          </p>
+                          <p>26460 Items</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </form>
         </div>
       </div>
-      <div className="container mx-auto flex gap-8 my-9 sm:w-full md:w-3/4 lg:w-[56rem] ">
+      <div className="container mx-auto flex gap-8 my-9 sm:w-full md:w-3/4 lg:w-[56rem] leading-10 ">
         <div>
           <h1>
             <span className="text-blue-500">3.</span>
-            <span className="text-blue-900 font-bold ">
-              SPACING SETTINGS ?{" "}
-            </span>
+            <span className="text-blue-900 font-bold ">SPACING SETTINGS ?</span>
           </h1>
           <div className="flex flex-wrap cursor-pointer gap-2 ">
             <div>
               <label>
-                <input type="checkbox" checked /> Tilt to Length
+                <input type="checkbox" /> Tilt to Length
               </label>
+              <div className="flex justify-center gap-6 ">
+                <div>
+                  <Image
+                    src={img2}
+                    width={100}
+                    height={300}
+                    alt="Picture of the author"
+                  />
+                </div>
+                <div className="mt-3">
+                  <Image
+                    src={img3}
+                    width={100}
+                    height={300}
+                    alt="Picture of the author"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div>
+        <div className="ml-10">
           <h1>
             <span className="text-blue-500">4.</span>
             <span className="text-blue-900 font-bold ">STUFFING SETTINGS</span>
           </h1>
+          <div className="flex flex-wrap cursor-pointer gap-6 ">
+            <div>
+              <Image
+                src={img1}
+                width={100}
+                height={50}
+                alt="Picture of the author"
+              />
+            </div>
+            <div className="flex-col gap-2">
+              <label>
+                <input type="checkbox" /> Layers
+              </label>{" "}
+              <br />
+              <input
+                className="rounded-3xl w-32   text-right  "
+                type="text"
+                style={{
+                  backgroundColor: "#F6F6F6",
+                }}
+              />
+            </div>
+            <div>
+              <Image
+                src={img4}
+                width={100}
+                height={600}
+                alt="Picture of the author"
+              />
+            </div>
+            <div className="flex-col gap-2">
+              <label>
+                <input type="checkbox" /> Layers
+              </label>{" "}
+              <br />
+              <input
+                className="rounded-3xl w-32   text-right  "
+                type="text"
+                style={{
+                  backgroundColor: "#F6F6F6",
+                }}
+              />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-wrap cursor-pointer gap-2 "></div>
       </div>
     </div>
   );
